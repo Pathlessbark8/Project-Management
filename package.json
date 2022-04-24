@@ -1,0 +1,20 @@
+{
+  "name": "project-management-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "express": "^4.17.3",
+    "mysql": "^2.18.1",
+    "promise-mysql": "^5.1.0",
+    "sync-sql": "^1.0.2"
+  }
+}
