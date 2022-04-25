@@ -1,9 +1,11 @@
 var express = require('express');
 var router = express.Router();
 var db=require('../database');
+
 // another routes also appear here
 // this script to fetch data from MySQL databse table
-router.post('/user-list', function(req, res, next) {
+router.post('/form', function(req, res, next) {
+  console.log("hi");
     var sid = req.body.sid
     var fname = req.body.fname
     var lname = req.body.lname

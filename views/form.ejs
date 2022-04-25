@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
+  <script>
+    $(document).ready(function(){
+      var sid,fname,lname, course;
+      $("#submit").click(function(){
+        sid=$("#sid").val();
+        fname=$("#fname").val();
+        lname=$("#fname").val();
+        course=$("#fname").val();
+        $.post("http://localhost:3000/form",{sid: sid, fname: fname, lname: lname, course: course}, function(data){
+          if(data === 'yes') {
+              alert("data got successfully");
+            }
+        });
+      });
+    });
+  </script>
+</head>
+
+<body>
+
+<h2>Student Form</h2>
+
+<form method="post">
+  <label for="sid">Student ID:</label><br>
+  <input type="text" id="sid" name="fname"><br>
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname"><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname"><br><br>
+  <label for="subjects">Course:</label><br>
+  <input type="text" id="course" name="course" size="50"><br><br>
+  <input type="button" id="submit" value="Submit">
+  
+</form> 
+
+
+
+</body>
+</html>
