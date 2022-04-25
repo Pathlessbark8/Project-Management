@@ -13,7 +13,7 @@ router.post('/form', function(req, res, next) {
     var cgpa = req.body.cgpa
     var password=req.body.password
     // console.log(req.body)
-    var sql="insert into student VALUES ('" + sid + "','" + branch + "','" + fname + "','" + lname +"', '" + cgpa +"', '"+password+"');";
+    var sql="insert into student VALUES ('" + sid + "','" + branch + "','" + fname + "','" + lname +"', '" + cgpa +"', MD5('"+password+"'));";
     console.log(password);
     db.query(sql, function (err, data, fields) {
     if (err) throw err;

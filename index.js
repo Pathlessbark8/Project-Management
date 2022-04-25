@@ -16,7 +16,7 @@ var usersRouter = require('./routes/users');
 var formPostRouter = require('./routes/formPost');
 var formGetRouter = require('./routes/formGet');
 var landingRouter = require('./routes/landing');
-var loginRouter=require('./routes/signupGet')
+var loginRouter=require('./routes/loginGet')
 
 var app = express();
 
