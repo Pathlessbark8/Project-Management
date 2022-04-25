@@ -30,7 +30,8 @@
             <th>Student Id</th>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Course</th>
+            <th>Branch</th>
+            <th>CGPA</th>
             <th>Edit</th>
             <th>Delete</th>
         </thead>
@@ -45,7 +46,8 @@
             <td><%=data.sid %></td>
             <td><%=data.fname %></td>
             <td><%=data.lname %></td>
-            <td><%=data.courses %></td>
+            <td><%=data.branch %></td>
+            <td><%=data.cgpa %></td>
             <td><a href="/users/edit/<%=data.id%>">Edit</a></td>
             <td><a href="/users/delete/<%=data.id%>">Delete</a></td>
         </tr>
