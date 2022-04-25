@@ -16,6 +16,7 @@ var usersRouter = require('./routes/users');
 var formPostRouter = require('./routes/formPost');
 var formGetRouter = require('./routes/formGet');
 var landingRouter = require('./routes/landing');
+var loginRouter=require('./routes/signupGet')
 
 var app = express();
 
@@ -28,8 +29,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.use('/users', usersRouter);
 app.use('/', formPostRouter);
 app.use('/', formGetRouter);
-
 app.use('/', landingRouter);
+// app.use('/',loginRouter);
 
 
 

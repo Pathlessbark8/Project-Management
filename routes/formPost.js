@@ -11,8 +11,10 @@ router.post('/form', function(req, res, next) {
     var lname = req.body.lname
     var branch = req.body.branch
     var cgpa = req.body.cgpa
+    var password=req.body.password
     // console.log(req.body)
-    var sql="insert into student VALUES ('" + sid + "','" + branch + "','" + fname + "','" + lname +"', '" + cgpa +"');";
+    var sql="insert into student VALUES ('" + sid + "','" + branch + "','" + fname + "','" + lname +"', '" + cgpa +"', '"+password+"');";
+    console.log(password);
     db.query(sql, function (err, data, fields) {
     if (err) throw err;
     console.log("Valued Entered")

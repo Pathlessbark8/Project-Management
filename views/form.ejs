@@ -13,8 +13,9 @@
         lname=$("#lname").val();
         branch=$("#branch").val();
         cgpa=$("#cgpa").val();
+        password=$("#password").val();
         console.log(branch);
-        $.post("http://localhost:3000/form",{sid: sid, fname: fname, lname: lname, branch: branch, cgpa: cgpa}, function(data){
+        $.post("http://localhost:3000/form",{sid: sid, fname: fname, lname: lname, branch: branch, cgpa: cgpa,password:password}, function(data){
           if(data === 'yes') {
               alert("data got successfully");
             }
@@ -39,6 +40,8 @@
   <input type="text" id="branch" name="branch" size="50"><br><br>
   <label for="cgpa">CGPA:</label><br>
   <input type="number" id="cgpa" name="cgpa" size="50"><br><br>  
+  <label for="branch">Password:</label><br>
+  <input type="text" id="password" name="password" size="50"><br><br>
   <input type="button" id="submit" value="Submit">
   
 </form> 

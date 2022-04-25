@@ -14,3 +14,4 @@ INSERT INTO `project_management`.`student` (`sid`, `courses`, `fname`, `lname`) 
 
 ALTER TABLE student RENAME COLUMN courses TO branch;
 ALTER TABLE student ADD cgpa FLOAT(4,2);
+ALTER TABLE student ADD pass VARCHAR(30);
