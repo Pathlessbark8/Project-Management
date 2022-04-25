@@ -1,9 +1,10 @@
 var mysql = require('mysql');
+require('custom-env').env()
 var conn = mysql.createConnection({
-  host: 'localhost', // Replace with your host name
-  user: 'root',      // Replace with your database username
-  password: 'mysql',      // Replace with your database password
-  database: 'project_management' // // Replace with your database Name
+        host: process.env.HOST,
+        user: process.env.USER,
+        password: process.env.PASSWORD,
+        database: process.env.DB
 }); 
 conn.connect(function(err) {
   if (err) throw err;
