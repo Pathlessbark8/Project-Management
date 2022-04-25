@@ -10,8 +10,8 @@
       $("#submit").click(function(){
         sid=$("#sid").val();
         fname=$("#fname").val();
-        lname=$("#fname").val();
-        course=$("#fname").val();
+        lname=$("#lname").val();
+        course=$("#course").val();
         $.post("http://localhost:3000/form",{sid: sid, fname: fname, lname: lname, course: course}, function(data){
           if(data === 'yes') {
               alert("data got successfully");
