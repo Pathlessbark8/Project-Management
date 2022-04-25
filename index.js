@@ -5,7 +5,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const bodyParser = require("body-parser")
+const bodyParser = require("body-parser");
 
 // var indexRouter = require('./index');
 
@@ -15,6 +15,7 @@ var usersRouter = require('./routes/users');
 
 var formPostRouter = require('./routes/formPost');
 var formGetRouter = require('./routes/formGet');
+var landingRouter = require('./routes/landing');
 
 var app = express();
 
@@ -28,6 +29,7 @@ app.use('/users', usersRouter);
 app.use('/', formPostRouter);
 app.use('/', formGetRouter);
 
+app.use('/', landingRouter);
 
 
 
