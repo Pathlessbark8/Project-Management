@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="https://www.thymeleaf.org">
+<!-- <html xmlns:th="ttps://www.thymeleaf.org"> -->
 
 <head>
   <title>Getting Started: Handling Form Submission</title>
@@ -22,10 +22,10 @@
         margin-bottom: 30px;
       }
     </style>
-
+<script type="module" src="student.js"></script>
 <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
 
-<script src="student.js"></script>
+
 
 </head>
 
@@ -53,7 +53,8 @@
 <!-- <script type="module">
 
   
-  const mysql = require('mysql')
+require(['require', 'mysql'], function (require) {
+    var mysql = require('mysql');
 
   var stdNo = 0;
   var tbody = document.getElementById('tbody1');
@@ -116,18 +117,18 @@
         console.log('The student table:', rows)
 
         setTimeout(() =>{
-        rows.forEach(row => {
           AddAllItemsToTable(row)
-        });
       }, 20000)
     })
 
 
     conn.end()
+
+  })
  
 
 
 </script> -->
 
-
+<!-- <script src="/student.js"></script> -->
 </html>

@@ -12,8 +12,13 @@
     "nodemon": "^2.0.15"
   },
   "dependencies": {
+    "body": "^5.1.0",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.7",
     "express": "^4.17.3",
+    "morgan": "^1.10.0",
     "mysql": "^2.18.1",
+    "parser": "^0.1.4",
     "promise-mysql": "^5.1.0",
     "sync-sql": "^1.0.2"
   }
