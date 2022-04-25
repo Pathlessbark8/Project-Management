@@ -13,6 +13,7 @@
         lname=$("#lname").val();
         branch=$("#branch").val();
         cgpa=$("#cgpa").val();
+        console.log(branch);
         $.post("http://localhost:3000/form",{sid: sid, fname: fname, lname: lname, branch: branch, cgpa: cgpa}, function(data){
           if(data === 'yes') {
               alert("data got successfully");
@@ -35,7 +36,7 @@
   <label for="lname">Last name:</label><br>
   <input type="text" id="lname" name="lname"><br><br>
   <label for="branch">Branch:</label><br>
-  <input type="text" id="course" name="course" size="50"><br><br>
+  <input type="text" id="branch" name="branch" size="50"><br><br>
   <label for="cgpa">CGPA:</label><br>
   <input type="number" id="cgpa" name="cgpa" size="50"><br><br>  
   <input type="button" id="submit" value="Submit">
