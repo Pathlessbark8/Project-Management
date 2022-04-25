@@ -17,6 +17,7 @@ var formPostRouter = require('./routes/formPost');
 var formGetRouter = require('./routes/formGet');
 var landingRouter = require('./routes/landing');
 var loginRouter=require('./routes/loginGet')
+var profRouter=require('./routes/prof')
 
 var app = express();
 
@@ -30,6 +31,7 @@ app.use('/users', usersRouter);
 app.use('/', formPostRouter);
 app.use('/', formGetRouter);
 app.use('/', landingRouter);
+app.use('/prof', profRouter);
 // app.use('/',loginRouter);
 
 
