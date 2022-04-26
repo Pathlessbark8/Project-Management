@@ -11,6 +11,7 @@ router.post('/prof', function(req, res, next) {
     var dept = req.body.dept
     var email = req.body.email
     var password=req.body.password
+    
     var sql="insert into professor VALUES ('" + pid + "','" + email + "','" + fname + "','" + lname +"', MD5('"+password+"'), '" + dept+ "');";
     console.log(password);
     db.query(sql, function (err, data, fields) {

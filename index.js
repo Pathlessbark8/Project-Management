@@ -26,7 +26,7 @@ var profSigninGetRouter = require('./routes/profSigninGet')
 var profSigninPostRouter = require('./routes/profSigninPost')
 
 //Projects
-var projectsRouter = require('./routes/projects')
+var projectsRouter = require('./routes/projectStudentView')
 
 var app = express();
 
@@ -36,17 +36,20 @@ app.use(bodyParser.json())
 app.set('views', path.join(__dirname, 'views'));
 // app.use('/', indexRouter);
 
+//students
 app.use('/users', usersRouter);
 app.use('/', formPostRouter);
 app.use('/', formGetRouter);
 app.use('/', landingRouter);
 app.use('/prof', profRouter);
+app.use('/student', projectsRouter)
 // app.use('/',loginRouter);
+
+//professor
 app.use('/signup', profSignupGetRouter)
 app.use('/signup', profSignupPostRouter)
 app.use('/signin', profSigninGetRouter)
 app.use('/signin', profSigninPostRouter)
-app.use('/projects', projectsRouter)
 
 
 

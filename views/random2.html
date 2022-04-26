@@ -1,19 +1,21 @@
 <html>
 <head>
-<title>Professor Sign In</title>
+<title>Sign Up</title>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
   <script>
     $(document).ready(function(){
-      var email, password;
+      var sid,fname,lname, branch, cgpa;
       $("#submit").click(function(){
-        console.log('bhjdsv')
+        pid=$("#pid").val();
+        fname=$("#fname").val();
+        lname=$("#lname").val();
+        dept=$("#dept").val();
         email=$("#email").val();
         password=$("#password").val();
-        $.post("http://localhost:3000/signin",{email: email, password:password}, function(data){
+        $.post("http://localhost:3000/signup",{pid: pid, fname: fname, lname: lname, dept: dept, email: email,password:password}, function(data){
           if(data === 'yes') {
               alert("Prof login data got successfully");
             }
-            
         });
       });
     });
@@ -205,15 +207,22 @@
 <body>
   
 <div id="login-box">
+<form method="post">
   <div class="left">
-    <h1 id='status'>Professor SignIn</h1>
+    <h1 id='status'>Professor Signup</h1>
     <!--<input type="text" id="username" name="username" placeholder="username" />-->
     <input type="email" id="email" name="email" placeholder="Email Id">
+    <input type="text" id="fname" name="fname" placeholder="First name">
+    <input type="text" id="lname" name="lname" placeholder="Last name">
+    <!-- <input type="text" id="vehicleno" name="vehicleno" placeholder="vehicle number"> -->
+    <input type="text" id="dept" name="dept" placeholder="Department">
+    <input type="text" id="pid" name="pid" placeholder="Professor ID" >
     <input type="password" id="password" name="password" placeholder="Password" >
-    <input type="submit" id='signUp' name="signup_submit"  value="Sign In" >
+    <input type="submit" id='signUp' name="signup_submit" value="Sign up" >
     
 
   </div>
+  </form>
   <!--<div id="login-box">
     <div class="left">
       <h1 id='status'>Login</h1>

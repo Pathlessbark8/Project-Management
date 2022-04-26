@@ -7,11 +7,11 @@ var db=require('../database');
 router.post('/prof', function(req, res, next) {
     var email = req.body.email
     var password=req.body.password
-    var sql="insert into professor VALUES ('" + pid + "','" + email + "','" + fname + "','" + lname +"', MD5('"+password+"'), '" + dept+ "');";
-    console.log(password);
+    console.log(email)
+    var sql= "SELECT * FROM PROFESSOR WHERE email='"+ email +"'and password=md5('" + password + "')";
     db.query(sql, function (err, data, fields) {
     if (err) throw err;
-    console.log("Profeesor Sign Up Values Entered in SQL")
+    console.log("Successful Sign in!")
   });
 });
 module.exports = router;

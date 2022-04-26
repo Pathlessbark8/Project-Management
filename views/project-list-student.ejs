@@ -32,6 +32,7 @@
             <th>Description</th>
             <th>Pre-requisite</th>
             <th>Faculty</th>
+            <th>Department</th>
             <th>Edit</th>
             <th>Delete</th>
         </thead>
@@ -49,6 +50,7 @@
             <td><%=data.description %></td>
             <td><%=data.pre_requisite %></td>
             <td><%=name %></td>
+            <td><%=data.dept %></td>
             <!-- <td><%=data.l_name %></td> -->
             <td><a href="/users/edit/<%=data.id%>">Edit</a></td>
             <td><a href="/users/delete/<%=data.id%>">Delete</a></td>
