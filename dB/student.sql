@@ -40,3 +40,40 @@ CREATE TABLE `dbms_project`.`professor` (
   PRIMARY KEY (`prof_id`));
 INSERT INTO `dbms_project`.`professor` (`prof_id`, `email`, `f_name`, `l_name`, `password`) VALUES ('1', 'prof@hyderabad.com', 'prof', 'essor', '1234');
 INSERT INTO `dbms_project`.`professor` (`prof_id`, `email`, `f_name`, `l_name`, `password`) VALUES ('2', 'teach@hyderabad.com', 'teach', 'er', '123');
+
+ALTER TABLE `dbms_project`.`project` 
+ADD COLUMN `prof_id` VARCHAR(15) NOT NULL AFTER `pre_requisite`,
+ADD INDEX `prof_id_idx` (`prof_id` ASC) VISIBLE;
+;
+
+UPDATE `dbms_project`.`project` SET `prof_id` = '2' WHERE (`proj_id` = '1');
+UPDATE `dbms_project`.`project` SET `prof_id` = '1' WHERE (`proj_id` = '2');
+
+ALTER TABLE `dbms_project`.`project` 
+ADD CONSTRAINT `prof_id`
+  FOREIGN KEY (`prof_id`)
+  REFERENCES `dbms_project`.`professor` (`prof_id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+UPDATE `dbms_project`.`project` SET `type` = 'LOP' WHERE (`proj_id` = '1');
+UPDATE `dbms_project`.`project` SET `type` = 'LOP' WHERE (`proj_id` = '2');
+
+
+--creating view to join project and prof table
+USE `dbms_project`;
+CREATE  OR REPLACE VIEW offers AS 
+    SELECT 
+        project.proj_id,
+        project.title,
+        project.type,
+        project.description,
+        project.pre_requisite,
+        professor.prof_id,
+        professor.f_name,
+        professor.l_name
+    FROM
+        professor,project
+	WHERE
+		project.prof_id=professor.prof_id;
