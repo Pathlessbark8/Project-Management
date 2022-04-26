@@ -26,7 +26,9 @@ var profSigninGetRouter = require('./routes/profSigninGet')
 var profSigninPostRouter = require('./routes/profSigninPost')
 
 //Projects
-var projectsRouter = require('./routes/projectStudentView')
+var studentProjectsRouter = require('./routes/projectStudentView')
+var professorProjectsRouter = require('./routes/projectProfessorView')
+var professorStudentsRouter = require('./routes/studentProfessorView')
 
 var app = express();
 
@@ -42,7 +44,7 @@ app.use('/', formPostRouter);
 app.use('/', formGetRouter);
 app.use('/', landingRouter);
 app.use('/prof', profRouter);
-app.use('/student', projectsRouter)
+app.use('/student', studentProjectsRouter)
 // app.use('/',loginRouter);
 
 //professor
@@ -50,6 +52,8 @@ app.use('/signup', profSignupGetRouter)
 app.use('/signup', profSignupPostRouter)
 app.use('/signin', profSigninGetRouter)
 app.use('/signin', profSigninPostRouter)
+app.use('/prof', professorProjectsRouter)
+app.use('/prof', professorStudentsRouter)
 
 
 
