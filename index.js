@@ -12,13 +12,18 @@ const bodyParser = require("body-parser");
 
 var usersRouter = require('./routes/users');
 
-
+//Student
 var formPostRouter = require('./routes/formPost');
 var formGetRouter = require('./routes/formGet');
 var landingRouter = require('./routes/landing');
 var loginRouter=require('./routes/loginGet')
 var profRouter=require('./routes/prof')
-var projectsRouter=require('./routes/projects')
+
+//Professor
+var profSignupGetRouter = require('./routes/profSignupGet')
+var profSignupPostRouter = require('./routes/profSignupPost')
+var profSigninGetRouter = require('./routes/profSigninGet')
+var profSigninPostRouter = require('./routes/profSigninPost')
 
 var app = express();
 
@@ -33,8 +38,11 @@ app.use('/', formPostRouter);
 app.use('/', formGetRouter);
 app.use('/', landingRouter);
 app.use('/prof', profRouter);
-app.use('/projects', projectsRouter);
 // app.use('/',loginRouter);
+app.use('/signup', profSignupGetRouter)
+app.use('/signup', profSignupPostRouter)
+app.use('/signin', profSigninGetRouter)
+app.use('/signin', profSigninPostRouter)
 
 
 
