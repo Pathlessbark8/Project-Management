@@ -14,7 +14,6 @@
         branch=$("#branch").val();
         cgpa=$("#cgpa").val();
         password=$("#password").val();
-        console.log(branch);
         $.post("http://localhost:3000/studentSignUp",{sid: sid, fname: fname, lname: lname, branch: branch, cgpa: cgpa,password:password}, function(data){
           if(data === 'yes') {
               alert("data got successfully");

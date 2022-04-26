@@ -25,6 +25,9 @@ var profSignupPostRouter = require('./routes/profSignupPost')
 var profSigninGetRouter = require('./routes/profSigninGet')
 var profSigninPostRouter = require('./routes/profSigninPost')
 
+//Projects
+var projectsRouter = require('./routes/projects')
+
 var app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -43,6 +46,7 @@ app.use('/signup', profSignupGetRouter)
 app.use('/signup', profSignupPostRouter)
 app.use('/signin', profSigninGetRouter)
 app.use('/signin', profSigninPostRouter)
+app.use('/projects', projectsRouter)
 
 
 
