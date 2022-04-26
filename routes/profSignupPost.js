@@ -12,7 +12,7 @@ router.post('/prof', function(req, res, next) {
     var email = req.body.email
     var password=req.body.password
     
-    var sql="insert into professor VALUES ('" + pid + "','" + email + "','" + fname + "','" + lname +"', MD5('"+password+"'), '" + dept+ "');";
+    var sql="insert into professor VALUES ('" + pid + "','" + email + "','" + fname + "','" + lname +"', '" + dept+ "',"+" MD5('"+password+"'));";
     console.log(password);
     db.query(sql, function (err, data, fields) {
     if (err) throw err;

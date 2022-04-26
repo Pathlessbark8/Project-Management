@@ -57,8 +57,8 @@ ADD CONSTRAINT `prof_id`
   ON UPDATE NO ACTION;
 
 
-UPDATE `dbms_project`.`project` SET `type` = 'LOP' WHERE (`proj_id` = '1');
-UPDATE `dbms_project`.`project` SET `type` = 'LOP' WHERE (`proj_id` = '2');
+  UPDATE `dbms_project`.`project` SET `type` = 'LOP' WHERE (`proj_id` = '1');
+  UPDATE `dbms_project`.`project` SET `type` = 'LOP' WHERE (`proj_id` = '2');
 
 
 --creating view to join project and prof table

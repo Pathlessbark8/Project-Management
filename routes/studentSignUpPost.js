@@ -14,7 +14,7 @@ router.post('/studentSignUp', function(req, res, next) {
     var cgpa = req.body.cgpa
     var password=req.body.password
     // console.log("Hi")
-    console.log(req.body)
+    // console.log(req.body)
 
     var sql="insert into student VALUES ('" + sid + "','" + branch + "','" + fname + "','" + lname +"', '" + cgpa +"', MD5('"+password+"'));";
     // console.log("Hi")
@@ -25,5 +25,6 @@ router.post('/studentSignUp', function(req, res, next) {
     console.log(req.body)
     console.log("Valued Entered")
   });
+  return res.redirect('/student/project-list');
 });
 module.exports = router;

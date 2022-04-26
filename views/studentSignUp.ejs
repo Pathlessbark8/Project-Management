@@ -18,10 +18,15 @@
             alert("Enter all the fields!");
         } 
         else{
-             $.post("http://localhost:3000/studentSignUp",{sid: sid, fname: fname, lname: lname, branch: branch, cgpa: cgpa,password:password}, function(data){
+            if(cgpa.length==1){
+                cgpa=cgpa+".00";
+            }
+             $.post("http://localhost:3000/studentSignUp",{sid: sid, fname: fname, lname: lname, branch: branch, cgpa: cgpa,password:password}).then( function(data){
              // if(data === 'yes') {
              //     alert("data got successfully");
              //     }
+             console.log("data");
+                window.location=data.redirectUrl;//"student/project-list";
             });
         }
       });
@@ -284,7 +289,7 @@ form {
                 <div class="item"><input class="input" type="password" id="password" placeholder="Password"> </div>
                 <!-- <span class="remember"> <a href="#">Forgot Password?</a> </span> -->
 
-                <div class="item submit"><button id="submit" type="submit" onclick="window.location.href = 'http://localhost:3000/student/project-list';">
+                <div class="item submit"><button id="submit" type="submit" >
                 Submit</button></div>
             </form>
             <h2><span>OR</span></h2>

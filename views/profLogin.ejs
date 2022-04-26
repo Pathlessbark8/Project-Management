@@ -9,7 +9,7 @@
         console.log('bhjdsv')
         email=$("#email").val();
         password=$("#password").val();
-        $.post("http://localhost:3000/signin",{email: email, password:password}, function(data){
+        $.post("http://localhost:3000/login/prof",{email: email, password:password}, function(data){
           if(data === 'yes') {
               alert("Prof login data got successfully");
             }
@@ -210,7 +210,7 @@
     <!--<input type="text" id="username" name="username" placeholder="username" />-->
     <input type="email" id="email" name="email" placeholder="Email Id">
     <input type="password" id="password" name="password" placeholder="Password" >
-    <input type="submit" id='signUp' name="signup_submit"  value="Sign In" >
+    <input type="submit" id='submit' name="signup_submit"  value="Sign In" >
     
 
   </div>
