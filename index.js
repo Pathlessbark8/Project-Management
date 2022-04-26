@@ -13,17 +13,18 @@ const bodyParser = require("body-parser");
 var usersRouter = require('./routes/users');
 
 //Student
-var formPostRouter = require('./routes/formPost');
-var formGetRouter = require('./routes/formGet');
+var studentSignupGetRouter = require('./routes/studentSignUpGet');
+var studentSignupPostRouter = require('./routes/studentSignUpPost');
 var landingRouter = require('./routes/landing');
-var loginRouter=require('./routes/loginGet')
-var profRouter=require('./routes/prof')
+// var studentProjectListRouter=require("./routes/projectStudentView")
+
 
 //Professor
 var profSignupGetRouter = require('./routes/profSignupGet')
 var profSignupPostRouter = require('./routes/profSignupPost')
 var profSigninGetRouter = require('./routes/profSigninGet')
 var profSigninPostRouter = require('./routes/profSigninPost')
+var profRouter=require('./routes/prof')
 
 //Projects
 var projectsRouter = require('./routes/projectStudentView')
@@ -38,8 +39,8 @@ app.set('views', path.join(__dirname, 'views'));
 
 //students
 app.use('/users', usersRouter);
-app.use('/', formPostRouter);
-app.use('/', formGetRouter);
+app.use('/', studentSignupGetRouter);
+app.use('/', studentSignupPostRouter);
 app.use('/', landingRouter);
 app.use('/prof', profRouter);
 app.use('/student', projectsRouter)
