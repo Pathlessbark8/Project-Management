@@ -13,7 +13,7 @@ router.post('/prof', function(req, res, next) {
     if (err) throw err;
     if(data.length==1){
       console.log("Successful Sign in!")
-      res.render('http://localhost:3000');
+      res.render('http://localhost:3000/');
     }
     else
       console.log("Please try again!")

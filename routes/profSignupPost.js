@@ -18,5 +18,6 @@ router.post('/prof', function(req, res, next) {
     if (err) throw err;
     console.log("Profeesor Sign Up Values Entered in SQL")
   });
+  return res.redirect('/');
 });
 module.exports = router;

@@ -12,10 +12,8 @@
         dept=$("#dept").val();
         email=$("#email").val();
         password=$("#password").val();
-        $.post("http://localhost:3000/signup",{pid: pid, fname: fname, lname: lname, dept: dept, email: email,password:password}, function(data){
-          if(data === 'yes') {
-              alert("Prof login data got successfully");
-            }
+        $.post("http://localhost:3000/signup/prof",{pid: pid, fname: fname, lname: lname, dept: dept, email: email,password:password}, function(data){
+          window.location="/";
         });
       });
     });
