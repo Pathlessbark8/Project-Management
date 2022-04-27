@@ -11,6 +11,7 @@ const bodyParser = require("body-parser");
 
 
 var usersRouter = require('./routes/users');
+var interRouter = require('./routes/inter');
 
 //Student
 var studentSignupGetRouter = require('./routes/studentSignUpGet');
@@ -41,6 +42,8 @@ app.use(bodyParser.json())
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 // app.use('/', indexRouter);
+
+app.use('/', interRouter)
 
 //students
 app.use('/users', usersRouter);
