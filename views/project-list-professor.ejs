@@ -31,8 +31,7 @@
             <th>Type</th>
             <th>Description</th>
             <th>Pre-requisite</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            <th>Students Applied</th>
         </thead>
         
         <%
@@ -48,8 +47,7 @@
             <td><%=data.description %></td>
             <td><%=data.pre_requisite %></td>
             <!-- <td><%=data.l_name %></td> -->
-            <td><a href="/users/edit/<%=data.id%>">Edit</a></td>
-            <td><a href="/users/delete/<%=data.id%>">Delete</a></td>
+            <td><button id="apply_btn" type="button" class="btn btn-danger" value="Apply" onclick="location.href='/prof/student-list';">Students Applied</button></td>
         </tr>
         <%  i++; }) %>
         <% } else{ %>

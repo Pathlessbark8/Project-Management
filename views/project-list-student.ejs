@@ -20,10 +20,36 @@
         margin-bottom: 30px;
       }
     </style>
+
+<script>
+ var express = require('express');
+ var router = express.Router();
+ var db=require('../database');
+ 
+//  document.getElementById("btn").addEventListener("click", function(e) {
+// 	getdata()
+// });
+ function myFunction(abc){
+  var sid = "0718";
+  var prof_id = "1";
+  var proj_id="1";
+  var sql="insert into proj_stud_reln VALUES ('" + sid + "','" + prof_id + "','" + proj_id + "');";
+  console.log(router);
+    console.log("Hello")
+    // console.log(sql)
+    // console.log(password);
+    db.query(sql, function (err, data, fields) {
+    if (err) throw err;
+    console.log(req.body)
+    console.log("Valued Entered")
+    })
+}
+</script>
+
 </head>
 <body>
     <div class="container mt-3">
-<h2>Project bank</h2>
+<h2 style="text-align: center;">Project bank</h2>
     <table class="table table-dark table-hover">
         <thead>
             <th>S.No</th>
@@ -33,8 +59,7 @@
             <th>Pre-requisite</th>
             <th>Faculty</th>
             <th>Department</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            <th>Apply</th>
         </thead>
         
         <%
@@ -50,10 +75,10 @@
             <td><%=data.description %></td>
             <td><%=data.pre_requisite %></td>
             <td><%=name %></td>
-            <td><%=data.dept %></td>
+            <td><%=data.department %></td>
             <!-- <td><%=data.l_name %></td> -->
-            <td><a href="/users/edit/<%=data.id%>">Edit</a></td>
-            <td><a href="/users/delete/<%=data.id%>">Delete</a></td>
+            <td><button id="apply_btn" type="button" class="btn btn-danger" value="Apply" onclick="window.myFunction()">Apply</button></td>
+            <!-- <td><a href="/users/delete/<%=data.id%>">Delete</a></td> -->
         </tr>
         <%  i++; }) %>
         <% } else{ %>
@@ -65,3 +90,4 @@
     </div>
 </body>
 </html>
+
