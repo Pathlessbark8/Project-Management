@@ -13,10 +13,12 @@ router.post('/studentSignUp', function(req, res, next) {
     var branch = req.body.branch
     var cgpa = req.body.cgpa
     var password=req.body.password
+
+    var email = "hello@fsjk.sd"
     // console.log("Hi")
     // console.log(req.body)
 
-    var sql="insert into student VALUES ('" + sid + "','" + branch + "','" + fname + "','" + lname +"', '" + cgpa +"', MD5('"+password+"'));";
+    var sql="insert into student VALUES ('" + sid + "','" + branch + "','" + fname + "','" + lname +"', '" + cgpa + "','" + email + "', MD5('"+password+"'));";
     // console.log("Hi")
     // console.log(sql)
     // console.log(password);

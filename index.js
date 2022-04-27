@@ -25,6 +25,9 @@ var profSignupPostRouter = require('./routes/profSignupPost')
 var profSigninGetRouter = require('./routes/profLoginGet')
 var profSigninPostRouter = require('./routes/profLoginPost')
 var profRouter=require('./routes/prof')
+var project_entryGetRouter = require('./routes/projectEntryGet')
+var project_entryPostRouter = require('./routes/projectEntryPost')
+
 
 //Projects
 var studentProjectsRouter = require('./routes/projectStudentView')
@@ -55,6 +58,8 @@ app.use('/login', profSigninGetRouter)
 app.use('/login', profSigninPostRouter)
 app.use('/prof', professorProjectsRouter)
 app.use('/prof', professorStudentsRouter)
+app.use('/prof', project_entryGetRouter)
+app.use('/prof', project_entryPostRouter)
 
 
 
