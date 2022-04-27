@@ -10,7 +10,6 @@
         password=$("#password").val();
         $.post("http://localhost:3000/studentlogin",{email: email, password:password}).done(function(data) {
         // window.location = data.redirectUrl;
-        res.redirect('/');
         alert(data);
         if(data.length!=0){
           
