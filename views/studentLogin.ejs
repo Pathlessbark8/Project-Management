@@ -2,18 +2,23 @@
 <head>
 <title>Student Log In</title>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
-  <script>
+  <script type="text/javascript">
     $(document).ready(function(){
       var email, password;
       $("#submit").click(function(){
-        console.log('bhjdsv')
         email=$("#email").val();
         password=$("#password").val();
-        $.post("http://localhost:3000/studentlogin",{email: email, password:password}, function(data){
-          if(data === 'yes') {
-              alert("Student login data got successfully");
-            }
-            
+        $.post("http://localhost:3000/studentlogin",{email: email, password:password}).done(function(data) {
+        // window.location = data.redirectUrl;
+        res.redirect('/prof/project-list');
+        alert(data);
+        if(data.length!=0){
+          
+          window.location = ' '+data+'/prof/project-list';
+        }
+        else{
+          window.location='/';
+        }
         });
       });
     });
@@ -264,12 +269,12 @@
       <div class="container">
           <div class="container-wrapper">
   
-              <h3 class="login-text"><i class="bi bi-person-circle ac-logo"></i>Student Sign In</h3>
+              <h3 class="login-text"><i class="bi bi-person-circle ac-logo"></i>Student Login</h3>
           
-              <form method="post">
+              <form >
                   <div class="item"> <input class="input" type="text" id="email" placeholder="Email ID"></div> 
                   <div class="item"><input class="input" type="text" id="password" placeholder="Password"></div>
-                  <div class="item submit"><button id="submit" type="submit" name="signup_submit" value="Log In">
+                  <div class="item submit"><button id="submit" type="button" name="signup_submit" value="Log In">
                   Submit</button></div>
               </form>
           </div>

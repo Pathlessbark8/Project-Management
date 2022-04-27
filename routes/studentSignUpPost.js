@@ -14,7 +14,7 @@ router.post('/studentSignUp', function(req, res, next) {
     var cgpa = req.body.cgpa
     var password=req.body.password
 
-    var email = "hello@fsjk.sd"
+    var email = req.body.email
     // console.log("Hi")
     // console.log(req.body)
 
@@ -27,6 +27,6 @@ router.post('/studentSignUp', function(req, res, next) {
     console.log(req.body)
     console.log("Valued Entered")
   });
-  return res.redirect('/student/project-list');
+  return res.redirect('/');
 });
 module.exports = router;

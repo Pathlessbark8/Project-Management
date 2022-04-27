@@ -54,7 +54,7 @@ app.use('/users', usersRouter);
 app.use('/', studentSignupGetRouter);
 app.use('/', studentSignupPostRouter);
 app.use('/', landingRouter);
-// app.use('/',studentLoginPostRouter);
+app.use('/',studentLoginPostRouter);
 app.use('/',studentLoginGetRouter);
 app.use('/prof', profRouter);
 app.use('/student', studentProjectsRouter)

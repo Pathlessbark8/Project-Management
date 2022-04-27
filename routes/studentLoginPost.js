@@ -7,16 +7,22 @@ var db=require('../database');
 router.post('/studentlogin', function(req, res, next) {
     var email = req.body.email
     var password=req.body.password
-    console.log(req.body)
+    // console.log(req.body)
     var sql= "SELECT * FROM STUDENT WHERE email='"+ email +"'and password=md5('" + password + "')";
     db.query(sql, function (err, data, fields) {
     if (err) throw err;
-    if(data.length==1){
-      console.log("Successful Sign in!")
-      res.render('http://localhost:3000');
+    // console.log(data);
+    if(data.length!=0){
+      console.log("HI");
+      return res.redirect('/prof/project-list');
+      // return "Hi";
     }
-    else
-      console.log("Please try again!")
+    else{
+      console.log("BYE");
+      return res.redirect('/');
+      // return "Bye";
+    }
   });
+  // return res.redirect('/');
 });
 module.exports = router;

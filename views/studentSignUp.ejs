@@ -5,8 +5,20 @@
   
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
   <script>
+      function validateEmail(emailField){
+        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+        if (reg.test(emailField) == false) 
+        {
+            alert('Invalid Email Address');
+            return false;
+        }
+
+        return true;
+
+}
     $(document).ready(function(){
-      var sid,fname,lname, branch, cgpa,password;
+      var sid,fname,lname, branch, cgpa,password,email;
       $("#submit").click(function(){
         sid=$("#sid").val();
         fname=$("#fname").val();
@@ -14,20 +26,22 @@
         branch=$("#branch").val();
         cgpa=$("#cgpa").val();
         password=$("#password").val();
-        if(password.length == 0 || sid.length==0 || fname.length==0||lname.length==0||branch.length==0 ||cgpa.length==0){
+        email=$("#email").val();
+        if(password.length == 0 || sid.length==0 || fname.length==0||lname.length==0||branch.length==0 ||cgpa.length==0||email.length==0){
             alert("Enter all the fields!");
         } 
         else{
             if(cgpa.length==1){
                 cgpa=cgpa+".00";
             }
-             $.post("http://localhost:3000/studentSignUp",{sid: sid, fname: fname, lname: lname, branch: branch, cgpa: cgpa,password:password}).then( function(data){
-             // if(data === 'yes') {
-             //     alert("data got successfully");
-             //     }
-             console.log("data");
-                window.location=data.redirectUrl;//"student/project-list";
+            if(!validateEmail(email)){
+            }
+            else{
+             $.post("http://localhost:3000/studentSignUp",{sid: sid, fname: fname, lname: lname, branch: branch, cgpa: cgpa,password:password,email:email}).then( function(data){
+                console.log("data");
+                window.location="/";//"student/project-list";
             });
+        }
         }
       });
     });
@@ -280,16 +294,17 @@ form {
 
             <h3 class="login-text"><i class="bi bi-person-circle ac-logo"></i>Sign Up</h3>
         
-            <form method="post">
+            <form >
                 <div class="item"> <input class="input fname"name="fname" type="text" id="fname" placeholder="First Name"></div> 
                 <div class="item"><input class="input" type="text" id="lname" placeholder="Last Name"></div>
+                <div class="item"><input class="input" type="email" id="email" placeholder="Email ID"></div>
                 <div class="item"><input class="input" type="text" id="sid" placeholder="Student ID"></div>
                 <div class="item"><input class="input" type="number" id="cgpa" placeholder="CGPA"></div>
                 <div class="item"><input class="input" type="text" id="branch" placeholder="Branch"></div>
                 <div class="item"><input class="input" type="password" id="password" placeholder="Password"> </div>
                 <!-- <span class="remember"> <a href="#">Forgot Password?</a> </span> -->
 
-                <div class="item submit"><button id="submit" type="submit" >
+                <div class="item submit"><button id="submit" type="button" >
                 Submit</button></div>
             </form>
             <h2><span>OR</span></h2>
