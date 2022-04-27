@@ -7,7 +7,7 @@ var db=require('../database');
 router.post('/prof', function(req, res, next) {
     var email = req.body.email
     var password=req.body.password
-    console.log(email)
+    console.log(req.body)
     var sql= "SELECT * FROM PROFESSOR WHERE email='"+ email +"'and password=md5('" + password + "')";
     db.query(sql, function (err, data, fields) {
     if (err) throw err;
