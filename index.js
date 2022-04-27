@@ -11,11 +11,14 @@ const bodyParser = require("body-parser");
 
 
 var usersRouter = require('./routes/users');
-var interRouter = require('./routes/inter');
+var interLoginRouter = require('./routes/interLogin');
+var interSignupRouter = require('./routes/interSignup');
 
 //Student
 var studentSignupGetRouter = require('./routes/studentSignUpGet');
 var studentSignupPostRouter = require('./routes/studentSignUpPost');
+var studentLoginPostRouter = require('./routes/studentLoginPost');
+var studentLoginGetRouter = require('./routes/studentLoginGet');
 var landingRouter = require('./routes/landing');
 // var studentProjectListRouter=require("./routes/projectStudentView")
 
@@ -43,13 +46,16 @@ app.use(bodyParser.json())
 app.set('views', path.join(__dirname, 'views'));
 // app.use('/', indexRouter);
 
-app.use('/', interRouter)
+app.use('/', interLoginRouter)
+app.use('/', interSignupRouter)
 
 //students
 app.use('/users', usersRouter);
 app.use('/', studentSignupGetRouter);
 app.use('/', studentSignupPostRouter);
 app.use('/', landingRouter);
+// app.use('/',studentLoginPostRouter);
+app.use('/',studentLoginGetRouter);
 app.use('/prof', profRouter);
 app.use('/student', studentProjectsRouter)
 // app.use('/',loginRouter);

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/inter', function(req, res, next) {
-    res.render('inter.ejs');
+router.get('/interlogin', function(req, res, next) {
+    res.render('interLogin.ejs');
 });
 module.exports = router;

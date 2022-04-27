@@ -248,7 +248,7 @@ form {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" href="style.css"> -->
-    <title>Login</title>
+    <title>Sign Up</title>
     <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/295/295128.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 </head>
@@ -257,13 +257,13 @@ form {
     <div class="container">
         <div class="container-wrapper">
 
-            <h3 class="login-text"><i class="bi bi-person-circle ac-logo"></i>Login - Who are you?</h3>
+            <h3 class="login-text"><i class="bi bi-person-circle ac-logo"></i>Sign Up - Who are you?</h3>
         
-            <form method="post">
-                <div class="item submit" ><button id="submit" type="submit" onclick="newLoc()">
+            <form method="get">
+                <div class="item submit" ><button id="submit" type="button" onclick="window.location='/signup/prof';">
                 Professor</button></div>
 
-                <div class="item submit"><button id="submit" type="submit" href='./studentLogin.ejs'>
+                <div class="item submit"><button id="submit" type="button" onclick="window.location='/studentsignup';">
                 Student</button></div>
 
                 <!-- onclick="window.location.href = 'http://localhost:3000/prof/project-list';" -->
