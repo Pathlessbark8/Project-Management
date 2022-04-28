@@ -1,4 +1,4 @@
-// New way
+// IMPORTING
 
 var createError = require('http-errors');
 var express = require('express');
@@ -6,14 +6,17 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const bodyParser = require("body-parser");
+const session = require('express-session');
 
-// var indexRouter = require('./index');
 
+
+
+
+// ROUTES
 
 var usersRouter = require('./routes/users');
 var interLoginRouter = require('./routes/interLogin');
 var interSignupRouter = require('./routes/interSignup');
-
 //Student
 var studentSignupGetRouter = require('./routes/studentSignUpGet');
 var studentSignupPostRouter = require('./routes/studentSignUpPost');
@@ -21,7 +24,6 @@ var studentLoginPostRouter = require('./routes/studentLoginPost');
 var studentLoginGetRouter = require('./routes/studentLoginGet');
 var landingRouter = require('./routes/landing');
 // var studentProjectListRouter=require("./routes/projectStudentView")
-
 
 //Professor
 var profSignupGetRouter = require('./routes/profSignupGet')
@@ -32,20 +34,46 @@ var profRouter=require('./routes/prof')
 var project_entryGetRouter = require('./routes/projectEntryGet')
 var project_entryPostRouter = require('./routes/projectEntryPost')
 
-
 //Projects
 var studentProjectsGetRouter = require('./routes/projectStudentViewGet')
 var studentProjectsPostRouter = require('./routes/projectStudentViewPost')
 var professorProjectsRouter = require('./routes/projectProfessorView')
 var professorStudentsRouter = require('./routes/studentProfessorView')
 
-var app = express();
+
+
+
+//Setting up App
+const app = express();
+
+app.use(session({
+  secret : 'some secret',
+  cookie : {maxAge : 300000},
+  saveUnintialized : false
+}));
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-// app.use('/', indexRouter);
+
+
+// app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'ejs');
+
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+// app.use(express.static(path.join(__dirname, 'public')));
+
+
+
+
+
+
+// PATHS
 
 app.use('/', interLoginRouter)
 app.use('/', interSignupRouter)
@@ -75,14 +103,12 @@ app.use('/prof', project_entryPostRouter)
 
 
 
-// app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'ejs');
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, 'public')));
+
+
+
+
+// ERROR HANDLING
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -100,7 +126,15 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-// module.exports = app;
+
+
+
+
+
+
+
+
+// PORT
 
 const PORT = 3000;
 
