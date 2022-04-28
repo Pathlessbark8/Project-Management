@@ -19,4 +19,16 @@ router.get('/project-list', function(req, res, next) {
     res.render('project-list-professor', { title: 'Project List', userData: data});
   });
 });
+
+// function checkUserSession( req, res, next )
+// {
+//     if( req.session.user_id )
+//     {
+//         next();
+//     }
+//     else
+//     {
+//         res.redirect('/');
+//     }
+// }
 module.exports = router;

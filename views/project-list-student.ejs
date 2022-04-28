@@ -39,6 +39,12 @@
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
   <script type="text/javascript">
+    function Logout(){
+      $.post("http://localhost:3000/logout").then( function(data){
+          console.log("BYE");
+          window.location = '/';
+        });
+    }
     function changeCSS(a){
       // console.log("css changing");
       document.getElementById(a).style.backgroundColor = "#38CC30";
@@ -92,7 +98,7 @@
             <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
             <!-- <button class="btn btn-outline-info" type="button" style="margin-right: 15px;"  onclick="window.location='/interlogin';">Login</button>
             <div class="space"> </div> -->
-            <button class="btn btn-outline-danger shift-btn" type="button" onclick="window.location='/intersignup';">Sign Out</button>
+            <button class="btn btn-outline-danger shift-btn" type="button" onclick="Logout()">Sign Out</button>
           </form>
         </div>
       </div>
