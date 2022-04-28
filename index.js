@@ -18,6 +18,7 @@ const store = new session.MemoryStore();
 var usersRouter = require('./routes/users');
 var interLoginRouter = require('./routes/interLogin');
 var interSignupRouter = require('./routes/interSignup');
+var logoutRouter=require('./routes/logout');
 
 //Student
 var studentSignupGetRouter = require('./routes/studentSignUpGet');
@@ -80,10 +81,11 @@ app.use(cookieParser());
 
 // PATHS
 
-app.use('/', interLoginRouter)
-app.use('/', interSignupRouter)
-
+app.use('/', interLoginRouter);
+app.use('/', interSignupRouter);
+app.use('/',logoutRouter);
 //students
+// console.log(session.);
 app.use('/users', usersRouter);
 app.use('/', studentSignupGetRouter);
 app.use('/', studentSignupPostRouter);
