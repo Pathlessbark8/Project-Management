@@ -39,7 +39,7 @@ var project_entryPostRouter = require('./routes/projectEntryPost')
 //Projects
 var studentProjectsGetRouter = require('./routes/projectStudentViewGet')
 var studentProjectsPostRouter = require('./routes/projectStudentViewPost')
-var professorProjectsRouter = require('./routes/projectProfessorView')
+var professorProjectsRouter = require('./routes/projectProfessorViewGet')
 var professorStudentsRouter = require('./routes/studentProfessorView')
 
 
