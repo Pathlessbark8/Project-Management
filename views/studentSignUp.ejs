@@ -38,7 +38,7 @@
             }
             else{
              $.post("http://localhost:3000/studentSignUp",{sid: sid, fname: fname, lname: lname, branch: branch, cgpa: cgpa,password:password,email:email}).then( function(data){
-                console.log("data");
+                alert("Signup Successful!");
                 window.location="/";//"student/project-list";
             });
         }
