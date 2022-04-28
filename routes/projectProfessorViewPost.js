@@ -10,7 +10,8 @@ var db=require('../database');
 router.post('/project-list', function(req, res, next) {
 
   req.session.key = req.body.proj_id;
-  console.log(req.session.key);
+  req.session.title = req.body.title;
+  // console.log(req.session.key);
   
   return res.redirect('/prof/student-list');
 });

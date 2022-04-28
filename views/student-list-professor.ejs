@@ -96,9 +96,9 @@
             <td><%=data.cgpa %></td>
             <td><%=data.email %></td>
             <!-- <td><%=data.l_name %></td> -->
-            <td><span ><a href="mailto:<%=data.email%>"><button  id="<%=data.sid%>" type="button" class="btn btn-danger" value="Mail" >Mail</button></a></span></td>
-            
-        </tr>
+            <td><span ><a href = "mailto:<%=data.email%>?subject=You are selected for the project <%=project_title%>&body=Dear student, Your application for the project <%=project_title%> has 
+             been shortlisted. Please apply on the ERP portal for the same."></a><button  id="<%=data.sid%>" type="button" class="btn btn-danger" value="Mail" >Mail</button></a></span></td>
+            </tr>
         <%  i++; }) %>
         <% } else{ %>
             <tr>
