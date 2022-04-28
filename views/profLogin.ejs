@@ -9,11 +9,16 @@
         console.log('bhjdsv')
         email=$("#email").val();
         password=$("#password").val();
-        $.post("http://localhost:3000/login/prof",{email: email, password:password}, function(data){
-          if(data === 'yes') {
-              alert("Prof login data got successfully");
-            }
+        $.post("http://localhost:3000/login/prof",{email: email, password:password}).done( function(data){
             
+        if(data.length!=0){
+          
+          window.location = '/prof/project-list';
+        }
+        else{
+          window.location='/';
+        }
+
         });
       });
     });

@@ -3,10 +3,10 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const bodyParser = require("body-parser");
 const session = require('express-session');
+var cookieParser = require('cookie-parser');
 
 
 
@@ -46,6 +46,7 @@ var professorStudentsRouter = require('./routes/studentProfessorView')
 //Setting up App
 const app = express();
 
+//session
 app.use(session({
   secret : 'some secret',
   cookie : {maxAge : 300000},

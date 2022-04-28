@@ -14,7 +14,7 @@ router.post('/studentlogin', function(req, res, next) {
     // console.log(data);
     if(data.length!=0){
       console.log("HI");
-      return res.redirect('/prof/project-list');
+      return res.redirect('/student/project-list');
       // return "Hi";
     }
     else{
