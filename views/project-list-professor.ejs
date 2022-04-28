@@ -6,13 +6,9 @@
   <script>
       function myFunction(proj_id){
         console.log("selected project Id : " + proj_id);
-        var a;
-        $.post("http://localhost:3000/student/project-list",{proj_id : proj_id}).done( function(data){
-            
-        if(data.length!=0){
-          
+        $.post("http://localhost:3000/prof/project-list",{proj_id : proj_id})
+        .then( function(data){
           window.location = '/prof/student-list';
-        }
         });
         }
   </script>
@@ -108,9 +104,7 @@
             <td><%=data.description %></td>
             <td><%=data.pre_requisite %></td>
             <!-- <td><%=data.l_name %></td> -->
-            <td><button id="
-                " type="button" class="btn btn-danger" value="Apply" onclick="myFunction(<%=data.proj_id%>)">Students Applied</button></td>
-                <!-- <td><button id="<%=data.title%>"  type="button" class="btn btn-danger" value="Delete" )>Delete</button></td> -->
+            <td><button id="<%=data.proj_id%>" type="button" class="btn btn-danger" value="Apply" onclick="myFunction('<%=data.proj_id%>')">Students Applied</button></td>
         </tr>
         <%  i++; }) %>
         <% } else{ %>

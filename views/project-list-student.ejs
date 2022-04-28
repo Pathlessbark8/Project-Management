@@ -40,7 +40,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
   <script type="text/javascript">
     function changeCSS(a){
-      //console.log("css changing");
+      // console.log("css changing");
       document.getElementById(a).style.backgroundColor = "#38CC30";
       document.getElementById(a).innerHTML = "Applied";
       document.getElementById(a).style.color = "black";
@@ -52,8 +52,7 @@
       }
     }
     function myFunction(a){
-        console.log("iahsd " +a);
-        var a;
+        console.log(a);
         $.post("http://localhost:3000/student/project-list",{proj_id:a});
         if(document.getElementById(a).innerHTML != "Applied"){
           alert("Project successfully applied!");
@@ -129,7 +128,7 @@
             <td><%=name %></td>
             <td><%=data.dept %></td>
             <!-- <td><%=data.l_name %></td> -->
-            <td><span class="<%=data.proj_id%>"><button id="<%=data.proj_id%>"  type="button" class="btn btn-danger" value="Apply" onclick="myFunction(<%=data.proj_id%>)">Apply</button></span></td>
+            <td><span ><button  id="<%=data.proj_id%>" type="button" class="btn btn-danger" value="Apply" onclick="myFunction('<%=data.proj_id%>')">Apply</button></span></td>
             <!-- <td><a href="/users/delete/<%=data.id%>">Delete</a></td> -->
         </tr>
         <%  i++; }) %>

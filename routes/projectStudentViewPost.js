@@ -13,7 +13,7 @@ router.post('/project-list', function(req, res, next) {
     console.log(sid)
   var prof_id = "1";
   var proj_id=req.body.proj_id;
-  var sql="INSERT into proj_stud_reln VALUES ('" + sid + "','" + prof_id + "','" + proj_id + "');";
+  var sql="INSERT into proj_stud_reln VALUES ('" + sid + "','"  + proj_id + "');";
 //   console.log(router);
     console.log("Hello");
     console.log(sql)
