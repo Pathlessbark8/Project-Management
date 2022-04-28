@@ -26,30 +26,14 @@
   }
     </style>
 
-<script>
- var express = require('express');
- var router = express.Router();
- var db=require('../database');
- 
-//  document.getElementById("btn").addEventListener("click", function(e) {
-// 	getdata()
-// });
- function myFunction(abc){
-  var sid = "0718";
-  var prof_id = "1";
-  var proj_id="1";
-  var sql="insert into proj_stud_reln VALUES ('" + sid + "','" + prof_id + "','" + proj_id + "');";
-  console.log(router);
-    console.log("Hello")
-    // console.log(sql)
-    // console.log(password);
-    db.query(sql, function (err, data, fields) {
-    if (err) throw err;
-    console.log(req.body)
-    console.log("Valued Entered")
-    })
-}
-</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
+  <script type="text/javascript">
+    function myFunction(a){
+        console.log("iahsd " +a);
+        var a;
+        $.post("http://localhost:3000/student/project-list",{proj_id:a});
+        }
+  </script>
 
 </head>
 <body>
@@ -82,7 +66,7 @@
             <td><%=name %></td>
             <td><%=data.dept %></td>
             <!-- <td><%=data.l_name %></td> -->
-            <td><button id="apply_btn" type="button" class="btn btn-danger" value="Apply" onclick="window.myFunction()">Apply</button></td>
+            <td><button id="<%=data.proj_id%>"  type="button" class="btn btn-danger" value="Apply" onclick="myFunction(<%=data.proj_id%>)">Apply</button></td>
             <!-- <td><a href="/users/delete/<%=data.id%>">Delete</a></td> -->
         </tr>
         <%  i++; }) %>
