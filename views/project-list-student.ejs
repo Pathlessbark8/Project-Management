@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Project bank</title>
+  <title>Project Bank</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
@@ -23,23 +23,84 @@
       padding: 5em;
       margin: 2em;
       background-color: #FF8080;
-  }
+    }
+    .table-shift {
+        margin-top: 100px;
+      }
+
+    /* .navbar-shift {
+      text-align: center;
+    } */
+
+    .shift-btn{
+      margin-right: 100px;
+    }
     </style>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
   <script type="text/javascript">
+    function changeCSS(a){
+      //console.log("css changing");
+      document.getElementById(a).style.backgroundColor = "#38CC30";
+      document.getElementById(a).innerHTML = "Applied";
+      document.getElementById(a).style.color = "black";
+    
+    }
+    function checkApplied(a){
+      if(document.getElementById(a).innerHTML == "Applied"){
+        alert("Already applied!");
+      }
+    }
     function myFunction(a){
         console.log("iahsd " +a);
         var a;
         $.post("http://localhost:3000/student/project-list",{proj_id:a});
+        if(document.getElementById(a).innerHTML != "Applied"){
+          alert("Project successfully applied!");
+        }
+        checkApplied(a);
+        changeCSS(a);
         }
   </script>
 
 </head>
 <body>
+  <header>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark py-3 navbar-shift">
+      <div class="container-fluid">
+        <a class="navbar-brand"  style="font-size:25px; font-weight: bold;">Project Bank</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"></a>
+            </li>
+          </ul>
+          <form class="d-flex" method="get" >
+           <!-- <li class="nav-item">
+             <a class="nav-link active" aria-current="page" href="#">Login</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link active" aria-current="page" href="#">Sign-up</a>
+           </li> -->
+            <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+            <!-- <button class="btn btn-outline-info" type="button" style="margin-right: 15px;"  onclick="window.location='/interlogin';">Login</button>
+            <div class="space"> </div> -->
+            <button class="btn btn-outline-danger shift-btn" type="button" onclick="window.location='/intersignup';">Sign Out</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
     <div class="container mt-3">
-<h2 style="text-align: center;">Project bank</h2>
-    <table class="table container-wrapper table-hover">
+<!-- <h2 style="text-align: center;">Project Bank</h2> -->
+    <table class="table container-wrapper table-hover table-shift">
         <thead>
             <th>S.No</th>
             <th>Project Title</th>
@@ -66,7 +127,7 @@
             <td><%=name %></td>
             <td><%=data.dept %></td>
             <!-- <td><%=data.l_name %></td> -->
-            <td><button id="<%=data.proj_id%>"  type="button" class="btn btn-danger" value="Apply" onclick="myFunction(<%=data.proj_id%>)">Apply</button></td>
+            <td><span class="<%=data.proj_id%>"><button id="<%=data.proj_id%>"  type="button" class="btn btn-danger" value="Apply" onclick="myFunction(<%=data.proj_id%>)">Apply</button></span></td>
             <!-- <td><a href="/users/delete/<%=data.id%>">Delete</a></td> -->
         </tr>
         <%  i++; }) %>
