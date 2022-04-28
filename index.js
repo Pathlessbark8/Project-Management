@@ -34,7 +34,8 @@ var project_entryPostRouter = require('./routes/projectEntryPost')
 
 
 //Projects
-var studentProjectsRouter = require('./routes/projectStudentView')
+var studentProjectsGetRouter = require('./routes/projectStudentViewGet')
+var studentProjectsPostRouter = require('./routes/projectStudentViewPost')
 var professorProjectsRouter = require('./routes/projectProfessorView')
 var professorStudentsRouter = require('./routes/studentProfessorView')
 
@@ -57,7 +58,8 @@ app.use('/', landingRouter);
 app.use('/',studentLoginPostRouter);
 app.use('/',studentLoginGetRouter);
 app.use('/prof', profRouter);
-app.use('/student', studentProjectsRouter)
+app.use('/student', studentProjectsGetRouter)
+app.use('/student', studentProjectsPostRouter)
 // app.use('/',loginRouter);
 
 //professor
