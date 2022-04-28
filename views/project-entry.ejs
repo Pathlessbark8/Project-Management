@@ -18,10 +18,7 @@
         } 
         else{
              $.post("http://localhost:3000/prof/project-entry",{proj_id: proj_id, title: title, type: type, desc: desc, pre_req: pre_req}).then( function(data){
-             // if(data === 'yes') {
-             //     alert("data got successfully");
-             //     }
-             window.location = "prof/project-list"
+             window.location = "/prof/project-list"
             });
         }
       });
@@ -275,7 +272,7 @@ form {
 
             <h3 class="login-text">Project Details</h3>
         
-            <form method="post">
+            <form>
                 <div class="item"><input class="input" type="text" id="proj_id" placeholder="Project ID"></div> 
                 <div class="item"><input class="input" type="text" id="title" placeholder="Project Title"></div>
                 <div class="item"><input class="input" type="text" id="type" placeholder="Project Type"></div>
@@ -284,8 +281,7 @@ form {
                 <!-- <div class="item"><input class="input" type="password" id="password" placeholder="Password"> </div> -->
                 <!-- <span class="remember"> <a href="#">Forgot Password?</a> </span> -->
 
-                <div class="item submit"><button id="submit" type="submit" >
-                Submit</button></div>
+                <div class="item submit"><button id="submit" type="button" >Submit</button></div>
 
             </form>
         </div>

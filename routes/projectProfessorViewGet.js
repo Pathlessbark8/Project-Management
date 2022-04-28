@@ -6,7 +6,7 @@ const store = new session.MemoryStore();
 var db=require('../database');
 // another routes also appear here
 // this script to fetch data from MySQL databse table
-router.get('/project-list', function(req, res, next) {
+router.get('/project-list', checkUserSession,function(req, res, next) {
 
     var prof_id = req.session.userid;
     
@@ -20,15 +20,16 @@ router.get('/project-list', function(req, res, next) {
   });
 });
 
-// function checkUserSession( req, res, next )
-// {
-//     if( req.session.user_id )
-//     {
-//         next();
-//     }
-//     else
-//     {
-//         res.redirect('/');
-//     }
-// }
+function checkUserSession( req, res, next )
+{
+    console.log(req.session.userid);
+    if( req.session.userid )
+    {
+        next();
+    }
+    else
+    {
+        res.redirect('/');
+    }
+}
 module.exports = router;
