@@ -31,8 +31,13 @@
     function myFunction(a){
         console.log("iahsd " +a);
         var a;
-        $.post("http://localhost:3000/student/project-list",{proj_id:a});
+        $.post("http://localhost:3000/student/project-list",{proj_id:a}).done(function(data){
+          if(data.length != 0){
+            window.location = '/student/project-list';
+          }
+        });
         }
+
   </script>
 
 </head>

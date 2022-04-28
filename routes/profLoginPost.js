@@ -32,8 +32,8 @@ router.post('/prof', function(req, res, next) {
       
     }
     else{
-      console.log("Please try again!")
       req.session.authenticated = false;
+      console.log("Please try again!");
     }
   });
 });
