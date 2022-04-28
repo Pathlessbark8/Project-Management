@@ -38,12 +38,53 @@
        margin: 2em;
        background-color: #FF8080;
    }
+
+   .table-shift {
+        margin-top: 100px;
+      }
+
+      .shift-btn{
+      margin-right: 100px;
+    }
     </style>
 </head>
 <body>
+  <header>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark py-3 navbar-shift">
+      <div class="container-fluid">
+        <a class="navbar-brand"  style="font-size:25px; font-weight: bold;">Projects you are offering</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"></a>
+            </li>
+          </ul>
+          <form class="d-flex" method="get" >
+           <!-- <li class="nav-item">
+             <a class="nav-link active" aria-current="page" href="#">Login</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link active" aria-current="page" href="#">Sign-up</a>
+           </li> -->
+            <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+            <!-- <button class="btn btn-outline-info" type="button" style="margin-right: 15px;"  onclick="window.location='/interlogin';">Login</button>
+            <div class="space"> </div> -->
+            <button class="btn btn-outline-danger shift-btn" type="button" onclick="window.location='/intersignup';">Sign Out</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
     <div class="container mt-3">
-<h2>Projects you are offering</h2>
-    <table class="table container-wrapper table-hover">
+<!-- <h2>Projects you are offering</h2> -->
+    <table class="table container-wrapper table-hover table-shift">
         <thead>
             <th>S.No</th>
             <th>Project Title</th>
@@ -51,6 +92,7 @@
             <th>Description</th>
             <th>Pre-requisite</th>
             <th>Students Applied</th>
+            <!-- <th>Delete</th> -->
         </thead>
         
         <%
@@ -68,6 +110,7 @@
             <!-- <td><%=data.l_name %></td> -->
             <td><button id="
                 " type="button" class="btn btn-danger" value="Apply" onclick="myFunction(<%=data.proj_id%>)">Students Applied</button></td>
+                <!-- <td><button id="<%=data.title%>"  type="button" class="btn btn-danger" value="Delete" )>Delete</button></td> -->
         </tr>
         <%  i++; }) %>
         <% } else{ %>
