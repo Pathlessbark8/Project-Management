@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-// const session = require('express-session');
-// var cookieParser = require('cookie-parser');
+const session = require('express-session');
+var cookieParser = require('cookie-parser');
 var db=require('../database');
 
 // another routes also appear here
@@ -12,7 +12,7 @@ router.post('/prof', function(req, res, next) {
 
     const {email, password} = req.body;
 
-    console.log("hello")
+    console.log(req.sessionID)
     var sql= "SELECT * FROM PROFESSOR WHERE email='"+ email +"'and password=md5('" + password + "')";
     db.query(sql, function (err, data, fields) {
     if (err) throw err;
