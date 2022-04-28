@@ -6,7 +6,8 @@ var path = require('path');
 var logger = require('morgan');
 const bodyParser = require("body-parser");
 const session = require('express-session');
-var cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
+const store = new session.MemoryStore();
 
 
 
@@ -17,6 +18,7 @@ var cookieParser = require('cookie-parser');
 var usersRouter = require('./routes/users');
 var interLoginRouter = require('./routes/interLogin');
 var interSignupRouter = require('./routes/interSignup');
+
 //Student
 var studentSignupGetRouter = require('./routes/studentSignUpGet');
 var studentSignupPostRouter = require('./routes/studentSignUpPost');
@@ -50,7 +52,8 @@ const app = express();
 app.use(session({
   secret : 'some secret',
   cookie : {maxAge : 300000},
-  saveUnintialized : false
+  saveUnintialized : false,
+  store
 }));
 
 app.use(bodyParser.urlencoded({ extended: true }))
