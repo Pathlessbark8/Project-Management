@@ -54,16 +54,12 @@
     function myFunction(a){
         console.log("iahsd " +a);
         var a;
-        $.post("http://localhost:3000/student/project-list",{proj_id:a}).done(function(data){
-          if(document.getElementById(a).innerHTML != "Applied"){
-            alert("Project successfully applied!");
-          }
-          checkApplied(a);
-          changeCSS(a);
-          if(data.length != 0){
-            window.location = '/student/project-list';
-          }
-        });
+        $.post("http://localhost:3000/student/project-list",{proj_id:a});
+        if(document.getElementById(a).innerHTML != "Applied"){
+          alert("Project successfully applied!");
+        }
+        checkApplied(a);
+        changeCSS(a);
         }
 
   </script>
