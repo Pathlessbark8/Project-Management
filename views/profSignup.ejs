@@ -13,6 +13,7 @@
         email=$("#email").val();
         password=$("#password").val();
         $.post("http://localhost:3000/signup/prof",{pid: pid, fname: fname, lname: lname, dept: dept, email: email,password:password}, function(data){
+            alert("Signup Successful!");
           window.location="/";
         });
       });

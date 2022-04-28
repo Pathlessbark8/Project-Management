@@ -4,6 +4,12 @@
   <title>Project bank</title>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
   <script>
+    function Logout(){
+      $.post("http://localhost:3000/logout").then( function(data){
+          console.log("BYE");
+          window.location = '/';
+        });
+    }
       function myFunction(proj_id, title){
         console.log("selected project Id : " + proj_id);
         $.post("http://localhost:3000/prof/project-list",{proj_id : proj_id, title: title})
@@ -36,11 +42,16 @@
    }
 
    .table-shift {
-        margin-top: 100px;
+        margin-top: 50px;
       }
 
       .shift-btn{
       margin-right: 100px;
+    }
+
+    .shift-btn1{
+      margin-left: 50%;
+      margin-top: 100px;
     }
     </style>
 </head>
@@ -72,7 +83,7 @@
             <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
             <!-- <button class="btn btn-outline-info" type="button" style="margin-right: 15px;"  onclick="window.location='/interlogin';">Login</button>
             <div class="space"> </div> -->
-            <button class="btn btn-outline-danger shift-btn" type="button" onclick="window.location='/intersignup';">Sign Out</button>
+            <button class="btn btn-outline-danger shift-btn" type="button" onclick="Logout()">Sign Out</button>
           </form>
         </div>
       </div>
@@ -81,6 +92,7 @@
     <div class="container mt-3">
 <!-- <h2>Projects you are offering</h2> -->
     <table class="table container-wrapper table-hover table-shift">
+      <button class="btn btn-outline-dark shift-btn1" type="button" onclick="window.location='/prof/project-entry';">Add Project</button>
         <thead>
             <th>S.No</th>
             <th>Project Title</th>
